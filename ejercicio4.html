@@ -10,11 +10,42 @@
         let fruta1 = prompt("Escribe una fruta");
         let precio1 = Number(prompt("Precio por kilo de " + fruta1));
         let fruta2 = prompt("Escribe una fruta");
-        let precio2 = Number(prompt("Precio por kilo de " + fruta1));
+        let precio2 = Number(prompt("Precio por kilo de " + fruta2));
         let fruta3 = prompt("Escribe una fruta");
-        let precio3 = Number(prompt("Precio por kilo de " + fruta1));
+        let precio3 = Number(prompt("Precio por kilo de " + fruta3));
 
-        
+        let cantidad1 = 40;
+        let cantidad2 = 20;
+        let cantidad3 = 15;
+
+        alert(fruta1 + ": " + precio1 + "€/k. Cantidad: " + cantidad1 +"; "
+                +fruta2 + ": " + precio2 + "€/k. Cantidad: " + cantidad2 + "; "
+                +fruta3 + ": " + precio3 + "€/k. Cantidad: " + cantidad3);
+
+        let frutaElegida = prompt("Elige fruta");
+        let cantidad = Number(prompt("Elige la cantidad"));
+
+        if(frutaElegida == fruta1){
+            if(cantidad <= cantidad1){
+                alert("Total a cobrar: " + (cantidad * precio1));
+            }else{
+                alert("No hay suficiente fruta");
+            }
+        }else if(frutaElegida == fruta2){
+            if(cantidad <= cantidad2){
+                alert("Total a cobrar: " + (cantidad * precio2));
+            }else{
+                alert("No hay suficiente fruta");
+            }
+        }else if(frutaElegida == fruta3){
+            if(cantidad <= cantidad3){
+                alert("Total a cobrar: " + (cantidad * precio3));
+            }else{
+                alert("No hay suficiente fruta");
+            }
+        }else{
+            alert("Escribe una fruta válida");
+        }
     </script>
 </body>
 </html>

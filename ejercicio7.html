@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let palabra = prompt("Introduce la palabra");
+        let contador = 0;
+        let letrasAcertadas = 0;
+
+        while(contador != 7 && letrasAcertadas != 4){
+            let letra = prompt("Introduce letra");
+            if(palabra[0] == letra || palabra[1] == letra || palabra[2] == letra || palabra[3] == letra){
+                alert("Acertaste una letra");
+                letrasAcertadas++;
+            }else{
+                alert("No acertaste");
+            }
+
+            contador++;
+        }
+
+        if(contador == 7){
+            alert("Perdiste")
+        }else{
+            alert("Ganaste");
+        }
+    </script>
+</body>
+</html>

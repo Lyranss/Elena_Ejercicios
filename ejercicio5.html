@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let monedas1 = Number(prompt("Monedas Jugador1"));
+        let monedas2 = Number(prompt("Monedas Jugador2"));
+        let monedas3 = Number(prompt("Monedas Jugador3"));
+        let monedas4 = Number(prompt("Monedas Jugador4"));
+
+        let j1 = Number(prompt("Cuantas monedas hay en total? Jugador1:"));
+        let j2 = Number(prompt("Cuantas monedas hay en total? Jugador2:"));
+        let j3 = Number(prompt("Cuantas monedas hay en total? Jugador3:"));
+        let j4 = Number(prompt("Cuantas monedas hay en total? Jugador4:"));
+
+        let ganadores = "Ganadores: ";
+        let total = monedas1+monedas2+monedas3+monedas4;
+        if(total == j1){
+            ganadores+= "Jugador 1 ";
+        }
+        if(total == j2){
+            ganadores+= "Jugador 2 ";
+        }
+        if(total == j3){
+            ganadores+= "Jugador 3 ";
+        }
+        if(total == j4){
+            ganadores+= "Jugador 4";
+        }
+
+        alert(ganadores);
+    </script>
+</body>
+</html>

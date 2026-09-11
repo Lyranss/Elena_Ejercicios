@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let j1 = prompt("Jugador 1. Piedra, papel o tijera");
+        let j2 = prompt("Jugador 2. Piedra, papel o tijera");
+
+        if(j1 == j2){
+            alert("Empate");
+        }else if((j1 == "piedra" && j2 == "tijera") || (j1 == "tijera" && j2 =="papel") || (j1 == "papel" && j2 == "piedra")){
+            alert("Ganador: Jugador 1");
+        }else{
+            alert("Ganador: Jugador 2");
+        }
+    </script>
+</body>
+</html>
