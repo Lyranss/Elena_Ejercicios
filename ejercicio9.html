@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let numero = Number(prompt("Escribe un número"));
+
+        let numeroAdivinado = false;
+        
+        let primerIntento = Number(prompt("Adivina el número"));
+        if(primerIntento == numero){
+            alert("Adivinaste el número");
+            numeroAdivinado = true;
+        }else{
+            alert("Número incorrecto. Intentalo de nuevo");
+        }
+
+        let segundoIntento;
+        let tercerIntento;
+        let cuartoIntento;
+        let quintoIntento;
+        if(!numeroAdivinado){
+            segundoIntento = Number(prompt("Adivina el número"));
+            if(primerIntento == segundoIntento){
+                alert("Ya has introducido este número")
+            }else{
+                if(segundoIntento == numero){
+                    alert("Adivinaste el número");
+                    numeroAdivinado = true;
+                }else{
+                    alert("Número incorrecto. Intentalo de nuevo");
+                }
+            }
+            
+        }
+
+        if(!numeroAdivinado){
+            tercerIntento = Number(prompt("Adivina el número"));
+            if(primerIntento == tercerIntento || segundoIntento == tercerIntento){
+                alert("Ya has introducido este número")
+            }else{
+                if(tercerIntento == numero){
+                    alert("Adivinaste el número");
+                    numeroAdivinado = true;
+                }else{
+                    alert("Número incorrecto. Intentalo de nuevo");
+                }
+            }
+        }
+
+        if(!numeroAdivinado){
+            cuartoIntento = Number(prompt("Adivina el número"));
+            if(primerIntento == cuartoIntento || segundoIntento == cuartoIntento || tercerIntento == cuartoIntento){
+                alert("Ya has introducido este número")
+            }else{
+                if(cuartoIntento == numero){
+                    alert("Adivinaste el número");
+                    numeroAdivinado = true;
+                }else{
+                    alert("Número incorrecto. Intentalo de nuevo");
+                }
+            }
+        }
+
+        if(!numeroAdivinado){
+            quintoIntento = Number(prompt("Adivina el número"));
+            if(primerIntento == quintoIntento || segundoIntento == quintoIntento || tercerIntento == quintoIntento || cuartoIntento == quintoIntento){
+                alert("Ya has introducido este número")
+            }else{
+                if(quintoIntento == numero){
+                    alert("Adivinaste el número");
+                    numeroAdivinado = true;
+                }else{
+                    alert("Intentos agotados.");
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -6,25 +6,18 @@
     <title>Document</title>
 </head>
 <body>
-    
     <script>
-        let numero = Number(prompt("Escribe un número"));
-        let acertado = false;
-        let contador = 0;
+        let a = Number(prompt("Escribe un número"));
+        let b = Number(prompt("Escribe otro número"));
 
-        while(contador != 5 && !acertado){
-            let resp = Number(prompt("Escribe un número"));
-            if(numero == resp){
-                acertado = true;
-            }
-            contador++;
-        }
-
-        if(acertado){
-            alert("Has acertado");
+        if(a > b){
+            alert("El mayor es " + a);
+        }else if(a == b){
+            alert("Son iguales");
         }else{
-            alert("Has perdido");
+            alert("El mayor es " + b);
         }
+
     </script>
 </body>
 </html>

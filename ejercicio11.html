@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let nombreJ1 = prompt("Jugador 1. Escribe tu nombre:");
+        let nombreJ2 = prompt("Jugador 2. Escribe tu nombre:");
+        let nombreJ3 = prompt("Jugador 3. Escribe tu nombre:");
+        let nombreJ4 = prompt("Jugador 4. Escribe tu nombre:");
+
+        let monedas1 = Number(prompt("Monedas de " + nombreJ1 + ":"));
+        let monedas2 = Number(prompt("Monedas de " + nombreJ2 + ":"));
+        let monedas3 = Number(prompt("Monedas de " + nombreJ3 + ":"));
+        let monedas4 = Number(prompt("Monedas de " + nombreJ4 + ":"));
+
+        let repetido = false;
+        let j1 = Number(prompt("Cuantas monedas hay en total? Jugador1:"));
+        let j2;
+        let j3;
+        let j4;
+        do {
+            j2 = Number(prompt("Cuantas monedas hay en total? Jugador2:"));
+            if(j2 == j1){
+                repetido = true;
+                alert("Número repetido. Escribe otro");
+            }else{
+                repetido = false;
+            }
+        } while (repetido);
+        do {
+            j3 = Number(prompt("Cuantas monedas hay en total? Jugador3:"));
+            if(j3 == j1 || j3 == j2){
+                repetido = true;
+                alert("Número repetido. Escribe otro");
+            }else{
+                repetido = false;
+            }
+        } while (repetido);
+        do {
+            j4 = Number(prompt("Cuantas monedas hay en total? Jugador4:"));
+            if(j4 == j1 || j4 == j2 || j4 == j3){
+                repetido = true;
+                alert("Número repetido. Escribe otro");
+            }else{
+                repetido = false;
+            }
+        } while (repetido);
+        
+
+        let ganadores = "Ganadores: \n";
+        let total = monedas1+monedas2+monedas3+monedas4;
+        if(total == j1){
+            ganadores+= nombreJ1 + "\n";
+        }
+        if(total == j2){
+            ganadores+= nombreJ2+ "\n";
+        }
+        if(total == j3){
+            ganadores+= nombreJ3+ "\n";
+        }
+        if(total == j4){
+            ganadores+= nombreJ4;
+        }
+
+        alert(ganadores);
+    </script>
+</body>
+</html>

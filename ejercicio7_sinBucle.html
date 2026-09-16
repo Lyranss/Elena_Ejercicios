@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let primeraLetra = prompt("Primera letra:");
+        let segundaLetra = prompt("Segunda letra:");
+        let terceraLetra = prompt("Tercera letra:");
+        let cuartaLetra = prompt("Cuarta letra:");
+
+        let letrasAdivinadas = 0;
+
+        let primerTurno = prompt("Adivina la letra: ");
+        if(primerTurno == primeraLetra || primerTurno == segundaLetra || primerTurno == terceraLetra || primerTurno == cuartaLetra){
+            alert("Acertaste la letra: " + primerTurno);
+            letrasAdivinadas++;
+        } else{
+            alert("No adivinaste la letra");
+        }
+        let segundoTurno = prompt("Adivina la letra: ");
+        if(segundoTurno == primeraLetra || segundoTurno == segundaLetra || segundoTurno == terceraLetra || segundoTurno == cuartaLetra){
+            alert("Acertaste la letra: " + segundoTurno);
+            letrasAdivinadas++;
+        }else{
+            alert("No adivinaste la letra");
+        }
+        let tercerTurno = prompt("Adivina la letra: ");
+        if(tercerTurno == primeraLetra || tercerTurno == segundaLetra || tercerTurno == terceraLetra || tercerTurno == cuartaLetra){
+            alert("Acertaste la letra: " + tercerTurno);
+            letrasAdivinadas++;
+        }else{
+            alert("No adivinaste la letra");
+        }
+        let cuartoTurno = prompt("Adivina la letra: ");
+        if(cuartoTurno == primeraLetra || cuartoTurno == segundaLetra || cuartoTurno == terceraLetra || cuartoTurno == cuartaLetra){
+            alert("Acertaste la letra: " + cuartoTurno);
+            letrasAdivinadas++;
+        }else{
+            alert("No adivinaste la letra");
+        }
+        if(letrasAdivinadas != 4){
+            let quintoTurno = prompt("Adivina la letra: ");
+            if(quintoTurno == primeraLetra || quintoTurno == segundaLetra || quintoTurno == terceraLetra || quintoTurno == cuartaLetra){
+            alert("Acertaste la letra: " + quintoTurno);
+            letrasAdivinadas++;
+            }else{
+                alert("No adivinaste la letra");
+            }
+        }
+        if(letrasAdivinadas != 4){
+            let sextoTurno = prompt("Adivina la letra: ");
+            if(sextoTurno == primeraLetra || sextoTurno == segundaLetra || sextoTurno == terceraLetra || sextoTurno == cuartaLetra){
+            alert("Acertaste la letra: " + sextoTurno);
+            letrasAdivinadas++;
+            }else{
+                alert("No adivinaste la letra");
+            }
+        }
+        if(letrasAdivinadas != 4){
+            let septimoTurno = prompt("Adivina la letra: ");
+            if(septimoTurno == primeraLetra || septimoTurno == segundaLetra || septimoTurno == terceraLetra || septimoTurno == cuartaLetra){
+            alert("Acertaste la letra: " + septimoTurno);
+            letrasAdivinadas++;
+            }else{
+                alert("No adivinaste la letra");
+            }
+        }
+        if(letrasAdivinadas == 4){
+            alert("Acertaste la palabra: " + primeraLetra + segundaLetra + terceraLetra + cuartaLetra);
+        }else{
+            alert("Perdiste. Intentos agotados");
+        }
+
+    </script>
+</body>
+</html>
