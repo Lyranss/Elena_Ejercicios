@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let primeraLetra = prompt("Primera letra:");
+        let segundaLetra = prompt("Segunda letra:");
+        let terceraLetra = prompt("Tercera letra:");
+        let cuartaLetra = prompt("Cuarta letra:");
+
+        let letrasAdivinadas = ""
+        let posicion1 = "_"
+        let posicion2 = "_"
+        let posicion3 = "_"
+        let posicion4 = "_"
+
+        let segundoTurno;
+        let tercerTurno;
+        let cuartoTurno;
+        let quintoTurno;
+        let sextoTurno;
+        let septimoTurno;
+
+        let primerTurno = prompt("Adivina la letra: ");
+        if (primerTurno == primeraLetra || primerTurno == segundaLetra || primerTurno == terceraLetra || primerTurno == cuartaLetra) {
+            if (primerTurno == primeraLetra) {
+                posicion1 = primerTurno;
+                letrasAdivinadas += primerTurno
+            }
+            if (primerTurno == segundaLetra) {
+                posicion2 = primerTurno;
+                letrasAdivinadas += primerTurno
+            }
+            if (primerTurno == terceraLetra) {
+                posicion3 = primerTurno
+                letrasAdivinadas += primerTurno
+            }
+            if (primerTurno == cuartaLetra) {
+                posicion4 = primerTurno;
+                letrasAdivinadas += primerTurno
+            }
+
+            alert("Acertaste la letra: " + posicion1 + posicion2 + posicion3 + posicion4);
+        } else {
+            alert("No adivinaste la letra");
+        }
+
+        if (letrasAdivinadas.length != 4) {
+            segundoTurno = prompt("Adivina la letra: ");
+            if (segundoTurno == primeraLetra || segundoTurno == segundaLetra || segundoTurno == terceraLetra || segundoTurno == cuartaLetra) {
+                if (segundoTurno == primeraLetra) {
+                    posicion1 = segundoTurno;
+                    letrasAdivinadas += segundoTurno;
+                }
+                if (segundoTurno == segundaLetra) {
+                    posicion2 = segundoTurno;
+                    letrasAdivinadas += segundoTurno;
+                }
+                if (segundoTurno == terceraLetra) {
+                    posicion3 = segundoTurno;
+                    letrasAdivinadas += segundoTurno;
+                }
+                if (segundoTurno == cuartaLetra) {
+                    posicion4 = segundoTurno;
+                    letrasAdivinadas += segundoTurno;
+                }
+
+                if (primerTurno == segundoTurno) {
+                    alert("Ya has introducido esta letra");
+                } else {
+                    alert("Acertaste la letra: " + posicion1 + posicion2 + posicion3 + posicion4);
+                }
+            } else {
+                alert("No adivinaste la letra");
+            }
+        }
+
+        if (letrasAdivinadas.length != 4) {
+            tercerTurno = prompt("Adivina la letra: ");
+            if (tercerTurno == primeraLetra || tercerTurno == segundaLetra || tercerTurno == terceraLetra || tercerTurno == cuartaLetra) {
+                if (tercerTurno == primeraLetra) {
+                    posicion1 = tercerTurno;
+                    letrasAdivinadas += tercerTurno
+                }
+                if (tercerTurno == segundaLetra) {
+                    posicion2 = tercerTurno;
+                    letrasAdivinadas += tercerTurno
+                }
+                if (tercerTurno == terceraLetra) {
+                    posicion3 = tercerTurno;
+                    letrasAdivinadas += tercerTurno
+                }
+                if (tercerTurno == cuartaLetra) {
+                    posicion4 = tercerTurno;
+                    letrasAdivinadas += tercerTurno
+                }
+
+                if (primerTurno == tercerTurno || segundoTurno == tercerTurno) {
+                    alert("Ya has introducido esta letra");
+                } else {
+                    alert("Acertaste la letra: " + posicion1 + posicion2 + posicion3 + posicion4);
+                }
+            } else {
+                alert("No adivinaste la letra");
+            }
+        }
+
+        if (letrasAdivinadas.length != 4) {
+            cuartoTurno = prompt("Adivina la letra: ");
+            if (cuartoTurno == primeraLetra || cuartoTurno == segundaLetra || cuartoTurno == terceraLetra || cuartoTurno == cuartaLetra) {
+                if (cuartoTurno == primeraLetra) {
+                    posicion1 = cuartoTurno;
+                    letrasAdivinadas += cuartoTurno
+                }
+                if (cuartoTurno == segundaLetra) {
+                    posicion2 = cuartoTurno;
+                    letrasAdivinadas += cuartoTurno
+                }
+                if (cuartoTurno == terceraLetra) {
+                    posicion3 = cuartoTurno;
+                    letrasAdivinadas += cuartoTurno
+                }
+                if (cuartoTurno == cuartaLetra) {
+                    posicion4 = cuartoTurno;
+                    letrasAdivinadas += cuartoTurno
+                }
+
+                if (primerTurno == cuartoTurno || segundoTurno == cuartoTurno || tercerTurno == cuartoTurno) {
+                    alert("Ya has introducido esta letra");
+                } else {
+                    alert("Acertaste la letra: " + posicion1 + posicion2 + posicion3 + posicion4);
+                }
+            } else {
+                alert("No adivinaste la letra");
+            }
+        }
+
+        if (letrasAdivinadas.length != 4) {
+            quintoTurno = prompt("Adivina la letra: ");
+            if (quintoTurno == primeraLetra || quintoTurno == segundaLetra || quintoTurno == terceraLetra || quintoTurno == cuartaLetra) {
+                if (quintoTurno == primeraLetra) {
+                    posicion1 = quintoTurno;
+                    letrasAdivinadas += quintoTurno
+                }
+                if (quintoTurno == segundaLetra) {
+                    posicion2 = quintoTurno;
+                    letrasAdivinadas += quintoTurno
+                }
+                if (quintoTurno == terceraLetra) {
+                    posicion3 = quintoTurno;
+                    letrasAdivinadas += quintoTurno
+                }
+                if (quintoTurno == cuartaLetra) {
+                    posicion4 = quintoTurno;
+                    letrasAdivinadas += quintoTurno
+                }
+
+                if (primerTurno == quintoTurno || segundoTurno == quintoTurno || tercerTurno == quintoTurno || cuartoTurno == quintoTurno) {
+                    alert("Ya has introducido esta letra");
+                } else {
+                    alert("Acertaste la letra: " + posicion1 + posicion2 + posicion3 + posicion4);
+                }
+            } else {
+                alert("No adivinaste la letra");
+            }
+        }
+        if (letrasAdivinadas.length != 4) {
+            sextoTurno = prompt("Adivina la letra: ");
+            if (sextoTurno == primeraLetra || sextoTurno == segundaLetra || sextoTurno == terceraLetra || sextoTurno == cuartaLetra) {
+                if (sextoTurno == primeraLetra) {
+                    posicion1 = sextoTurno;
+                    letrasAdivinadas += sextoTurno
+                }
+                if (sextoTurno == segundaLetra) {
+                    posicion2 = sextoTurno;
+                    letrasAdivinadas += sextoTurno
+                }
+                if (sextoTurno == terceraLetra) {
+                    posicion3 = sextoTurno;
+                    letrasAdivinadas += sextoTurno
+                }
+                if (sextoTurno == cuartaLetra) {
+                    posicion4 = sextoTurno;
+                    letrasAdivinadas += sextoTurno
+                }
+
+                if (primerTurno == sextoTurno || segundoTurno == sextoTurno || tercerTurno == sextoTurno || cuartoTurno == sextoTurno || quintoTurno == sextoTurno) {
+                    alert("Ya has introducido esta letra");
+                } else {
+                    alert("Acertaste la letra: " + posicion1 + posicion2 + posicion3 + posicion4);
+                }
+            } else {
+                alert("No adivinaste la letra");
+            }
+        }
+        if (letrasAdivinadas.length != 4) {
+            septimoTurno = prompt("Adivina la letra: ");
+            if (septimoTurno == primeraLetra || septimoTurno == segundaLetra || septimoTurno == terceraLetra || septimoTurno == cuartaLetra) {
+                if (septimoTurno == primeraLetra) {
+                    posicion1 = septimoTurno;
+                }
+                if (septimoTurno == segundaLetra) {
+                    posicion2 = septimoTurno;
+                }
+                if (septimoTurno == terceraLetra) {
+                    posicion3 = septimoTurno;
+                }
+                if (septimoTurno == cuartaLetra) {
+                    posicion4 = septimoTurno;
+                }
+
+                if (primerTurno == septimoTurno || segundoTurno == sextoTurno || tercerTurno == sextoTurno || cuartoTurno == sextoTurno || quintoTurno == sextoTurno) {
+                    alert("Ya has introducido esta letra");
+                } else {
+                    alert("Acertaste la letra: " + posicion1 + posicion2 + posicion3 + posicion4);
+                }
+            } else {
+                alert("No adivinaste la letra");
+            }
+        }
+        if (letrasAdivinadas.length == 4) {
+            alert("Acertaste la palabra: " + primeraLetra + segundaLetra + terceraLetra + cuartaLetra);
+        } else {
+            alert("Perdiste. Intentos agotados");
+        }
+
+    </script>
+</body>
+
+</html>

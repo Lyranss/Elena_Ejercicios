@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let frutas = ["manzana", "banana", "cereza", "naranja", "pera", "kiwi", "mango", "piña"];
+        let precio = [10.2, 4.3, 5.6, 7.8, 3.4, 8.9, 6.7, 9.1];
+        let cantidad = [50, 100, 75, 80, 60, 40, 30, 20];
+        let imprimirFrutas = "";
+
+        for(let i = 0; i < frutas.length; i++){
+            imprimirFrutas += frutas[i] + ": " + precio[i] + "€/Kg \n";
+        }
+
+        alert(imprimirFrutas);
+
+        let total = 0;
+        let continuar = "si";
+
+        while(continuar == "si"){
+            let eleccion = prompt("¿Qué fruta quieres?");
+            let existe = false;
+
+            for(let i = 0; i < frutas.length; i++){
+                if(eleccion == frutas[i]){
+                    existe = true;
+                    let cant = prompt("¿Cuántos kilos?");
+                    let eleccion_kg = parseFloat(cant);
+                    total += precio[i]*eleccion_kg;
+                }
+            }
+
+            if(!existe){
+                    alert("No tengo de eso");
+                }
+
+            continuar = prompt("Quieres comprar otra fruta? (si/no)");
+        }
+
+        alert("Total: " + total + "€");
+    </script>
+</body>
+</html>
