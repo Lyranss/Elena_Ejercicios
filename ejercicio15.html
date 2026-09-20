@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let precioDiesel = parseFloat(prompt("Precio de Diesel:"));
+        let precioGasolina = parseFloat(prompt("Precio de Gasolina"));
+        let precioDiesel10 = parseFloat(prompt("Precio de Diesel 10"));
+        let iva = Number(prompt("Introduce el porcentaje de IVA"));
+        let litros = Number(prompt("Litros a suministrar"));
+
+        let mensaje = "Diesel: " + precioDiesel + "€/l \n" + 
+                        "Gasolina: " + precioGasolina + "€/l \n" +
+                        "Diesel 10: " + precioDiesel10 + "€/l";
+        
+        alert(mensaje);
+
+        let agricola = prompt("Gasoil agrícola (s/n)");
+        let tarjeta = prompt("Tarjeta cliente (s/n)");
+        let combustible = prompt("Elige combustible");
+
+        let precio;
+        if(combustible == "diesel") precio = precioDiesel;
+        if(combustible == "gasolina") precio = precioGasolina;
+        if(combustible == "diesel 10") precio = precioDiesel10;
+
+        if(agricola == "s") precio -= 0.35;
+        if(tarjeta == "s") precio -= 0.05;
+
+        precio = precio + precio * iva /100;
+
+        let total = litros * precio;
+
+        alert("Total a pagar: " + total + "€");
+    </script>
+</body>
+</html>

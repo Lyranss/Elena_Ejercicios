@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let primerExamen1 = parseFloat(prompt("Evaluacion 1. Nota del primer examen"));
+        let segundoExamen1 = parseFloat(prompt("Evaluacion 1. Nota del segundo examen"));
+        let tercerExamen1 = parseFloat(prompt("Evaluacion 1. Nota del tercer examen"));
+        let recuperacion1 = parseFloat(prompt("Recuperacion 1. Nota de la recuperacion"));
+
+        let primerExamen2 = parseFloat(prompt("Evaluacion 2. Nota del primer examen"));
+        let segundoExamen2 = parseFloat(prompt("Evaluacion 2. Nota del segundo examen"));
+        let tercerExamen2 = parseFloat(prompt("Evaluacion 2. Nota del tercer examen"));
+        let recuperacion2 = parseFloat(prompt("Recuperacion 1. Nota de la recuperacion"));
+
+        let primerExamen3 = parseFloat(prompt("Evaluacion 3. Nota del primer examen"));
+        let segundoExamen3 = parseFloat(prompt("Evaluacion 3. Nota del segundo examen"));
+        let tercerExamen3 = parseFloat(prompt("Evaluacion 3. Nota del tercer examen"));
+        let recuperacion3 = parseFloat(prompt("Recuperacion 1. Nota de la recuperacion"));
+
+        let evaluacion1 = primerExamen1 >= 70 && segundoExamen1 >= 60 && tercerExamen1 >= 50;
+        let evaluacion2 = primerExamen2 >= 70 && segundoExamen2 >= 60 && tercerExamen2 >= 50;
+        let evaluacion3 = primerExamen3 >= 70 && segundoExamen3 >= 60 && tercerExamen3 >= 50;
+        
+        if(!evaluacion1 && recuperacion1 >=50){
+            evaluacion1 = true;
+        }
+        
+        if(!evaluacion2 && recuperacion2 >=50){
+            evaluacion2 = true;
+        }
+
+        if(!evaluacion3 && recuperacion3 >=50){
+            evaluacion3 = true;
+        }
+
+        if(evaluacion1 && evaluacion2 && evaluacion3){
+            alert("El alumno está aprobado");
+        }else{
+            alert("El alumno está suspenso");
+        }
+    </script>
+</body>
+</html>
