@@ -7,25 +7,48 @@
 </head>
 <body>
     <script>
-        let primerExamen1 = parseFloat(prompt("Evaluacion 1. Nota del primer examen"));
-        let segundoExamen1 = parseFloat(prompt("Evaluacion 1. Nota del segundo examen"));
-        let tercerExamen1 = parseFloat(prompt("Evaluacion 1. Nota del tercer examen"));
-        let recuperacion1 = parseFloat(prompt("Recuperacion 1. Nota de la recuperacion"));
-        let nota1 = (primerExamen1+segundoExamen1+tercerExamen1) / 3;
-        alert("Nota: " + nota1);
+        let aprobado = true;
+        let media = 0;
+        let notas = [];
+        let notasMedias = [];
+        for(let i = 0; i < 3; i++){
+            notas[i] = [];
+            for(let j = 0; j < 4; j++){
+                if(j == 3){
+                    notas[i][j] = parseFloat(prompt("Evaluacion " + (i+1) + ": Nota de Recuperación"));
+                    if(notas[i][j] >= 5 && !aprobado){
+                        aprobado = true;
+                    }
+                }else{
+                    notas[i][j] = parseFloat(prompt("Evaluacion " + (i+1) + ": Nota de Examen " + (j+1)));
+                    media += notas[i][j];
+                    if(notas[i][j] <= 5){
+                        aprobado = false;
+                    }
+                }
+            }
+            media /= 3;
+            notasMedias[i] = media;
+            media = 0;
+        }
 
-        let primerExamen2 = parseFloat(prompt("Evaluacion 2. Nota del primer examen"));
-        let segundoExamen2 = parseFloat(prompt("Evaluacion 2. Nota del segundo examen"));
-        let tercerExamen2 = parseFloat(prompt("Evaluacion 2. Nota del tercer examen"));
-        let recuperacion2 = parseFloat(prompt("Recuperacion 2. Nota de la recuperacion"));
+        if(notasMedias[0] < 70 || notasMedias[1] < 60 || notasMedias[2] < 50){
+            aprobado = false;
+        }
 
-        let primerExamen3 = parseFloat(prompt("Evaluacion 3. Nota del primer examen"));
-        let segundoExamen3 = parseFloat(prompt("Evaluacion 3. Nota del segundo examen"));
-        let tercerExamen3 = parseFloat(prompt("Evaluacion 3. Nota del tercer examen"));
-        let recuperacion3 = parseFloat(prompt("Recuperacion 3. Nota de la recuperacion"));
+        if(!aprobado){
+            for(let i = 0; i < notas.length; i++){
+                if(notas[i][3] >= 5){
+                    aprobado = true;
+                }
+            }
+        }
 
-        let nota2 = (primerExamen1+segundoExamen1+tercerExamen1) / 3;
-        alert("Nota: " + nota1);
+        if(aprobado){
+            alert("Aprobado");
+        }else{
+            alert("Suspenso");
+        }
     </script>
 </body>
 </html>
