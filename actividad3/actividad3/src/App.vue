@@ -11,8 +11,7 @@ import Pie from './components/pie.vue'
 </template>
 
 <style>
-  body{
-    background-color: aliceblue;
-    color: black;
-  }
+body{
+  background-color: #CCC9DC;
+}
 </style>

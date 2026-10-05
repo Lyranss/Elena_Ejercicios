@@ -6,6 +6,7 @@
 
 <style scoped>
     h1{
-        color: black;
+        color: #1B2A41;
+        text-shadow: 1px 1px 5px #0C1821
     }
 </style>

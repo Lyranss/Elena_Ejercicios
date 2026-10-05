@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue'
+
 const props = defineProps({
     visible: {
         type: Boolean,
@@ -12,85 +13,105 @@ const props = defineProps({
 })
 
 const emit = defineEmits(['cerrar', 'agregar'])
-
-const tallaSeleccionada = ref('XS') 
-const precioTotal = ref(0);
-const seleccionarTalla = (talla, precio) => {
+const totalPrecio = ref(0)
+const tallaSeleccionada = ref('')
+const stock = ref(0)
+const seleccionarTalla = (talla) => {
     tallaSeleccionada.value = talla
-    if (tallaSeleccionada.value == 'S') {
-        camiseta.precio += 1;
+    if (tallaSeleccionada.value == "XS") {
+        totalPrecio.value = props.camiseta.precios.XS;
+        stock.value = props.camiseta.stock.XS;
+    } else if (tallaSeleccionada.value == 'S') {
+        totalPrecio.value = props.camiseta.precios.S;
+        stock.value = props.camiseta.stock.S;
     } else if (tallaSeleccionada.value == 'M') {
-        camiseta.precio += precio + 2;
-    } else if(tallaSeleccionada.value == 'L') {
-        camiseta.precio += precio + 3;
+        totalPrecio.value = props.camiseta.precios.M;
+        stock.value = props.camiseta.stock.M;
+    } else if (tallaSeleccionada.value == 'L') {
+        totalPrecio.value = props.camiseta.precios.L;
+        stock.value = props.camiseta.stock.L;
     }
 }
 
 const agregarAlCarrito = () => {
-    emit('agregar')
-    emit('cerrar')
+    if (stock.value != 0) {
+        emit('agregar')
+        emit('cerrar')
+    }
+}
+
+const indiceCamiseta = ref(0);
+
+const reiniciar = () => {
+    tallaSeleccionada.value = "";
+    stock.value = 0;
+    totalPrecio.value = 0;
+    indiceCamiseta.value = 0;
+}
+
+const cambiarImagen = () =>{
+    if(indiceCamiseta.value == 0){
+        indiceCamiseta.value = 1;
+    }else{
+        indiceCamiseta.value = 0;
+    }
 }
 </script>
 
 <template>
-        <div v-if="visible" class="fondo" @click.self="$emit('cerrar')">
-            <article class="tarjeta">
-                <div>
-                    <img src="../assets/camiseta.jpg" alt="">
-                    <img src="../assets/porDetras.png" alt="">
+    <div v-if="visible" class="fondo" @click.self="$emit('cerrar'), reiniciar()">
+        <article class="tarjeta">
+            
+            <img :src="camiseta.img[indiceCamiseta]" alt="Camiseta" @click.value="cambiarImagen()">
+            
+            <div class="info">
+                <h3>{{ camiseta.nombre }}</h3>
+                <p class="precio">{{ totalPrecio }} €</p>
+
+                <p class="texto-talla">Selecciona una talla</p>
+                <div class="contenedor-tallas">
+                    <button :class="{ activo: tallaSeleccionada === 'XS' }" @click="seleccionarTalla('XS')">XS</button>
+                    <button :class="{ activo: tallaSeleccionada === 'S' }" @click="seleccionarTalla('S')">S</button>
+                    <button :class="{ activo: tallaSeleccionada === 'M' }" @click="seleccionarTalla('M')">M</button>
+                    <button :class="{ activo: tallaSeleccionada === 'L' }" @click="seleccionarTalla('L')">L</button>
                 </div>
-                <div class="info">
-                    <h3>{{ camiseta.nombre }}</h3>
-                    <p class="precio">{{ camiseta.precios.XS }} €</p>
-                    <p class="descripcion">Camiseta de estilo urbano, cómoda y perfecta para el día a día.</p>
-                    <hr>
+                <strong class="stock">Stock Talla {{ tallaSeleccionada }} disponible: {{ stock }} camisetas</strong>
 
-                    <p class="texto-talla">Selecciona una talla</p>
-                    <button :class="{ activo: tallaSeleccionada === 'XS' }" @click="seleccionarTalla('XS', camiseta.precio)">XS</button>
-                    <button :class="{ activo: tallaSeleccionada === 'S' }" @click="seleccionarTalla('S', camiseta.precio)">S</button>
-                    <button :class="{ activo: tallaSeleccionada === 'M' }" @click="seleccionarTalla('M', camiseta.precio)">M</button>
-                    <button :class="{ activo: tallaSeleccionada === 'L' }" @click="seleccionarTalla('L', camiseta.precio)">L</button>
-
-                    <button class="carrito" @click="agregarAlCarrito">Añadir al carrito</button>
-                    <hr>
-                    <button class="carrito" @click="$emit('cerrar')">Cerrar</button>
-                </div>
+                <button class="carrito" @click="agregarAlCarrito(), reiniciar()">Añadir al carrito</button>
+                <button class="carrito" @click="$emit('cerrar'), reiniciar()">Cerrar</button>
+            </div>
 
 
-            </article>
-        </div>
+        </article>
+    </div>
 </template>
 
 <style scoped>
 .tarjeta {
-    background: white;
+    background: #CCC9DC;
     border-radius: 18px;
+    width: 740px;
+    height: 400px;
     max-width: 940px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     overflow: hidden;
 }
 
-.descripcion {
-    text-align: center;
-    color: #666;
-    max-width: 300px;
-}
-
 .texto-talla {
     margin: 0;
-    color: #666;
+    color: #1B2A41;
 }
 
 .precio {
     font-size: 24px;
     font-weight: bold;
-    color: rgb(254, 93, 254);
+    color: #1B2A41;
 }
 
 img {
-    width: 350px;
-    height: 350px;
+    width: 370px;
+    height: 400px;
 }
 
 .info {
@@ -99,27 +120,33 @@ img {
     align-items: center;
     justify-content: center;
     gap: 20px;
-
+    margin: 20px;
 }
 
 .info h3 {
     font-size: 28px;
     margin: 0;
+    color: #2c3e50;
 }
 
 button {
     width: 50px;
     height: 40px;
-    border: 1px solid black;
+    border: 1px solid rgb(129, 127, 127);
     border-radius: 8px;
     cursor: pointer;
-    background-color: white;
-    color: black;
+    background-color: #CCC9DC;
+    color: #0C1821;
 }
 
 button:hover {
-    background-color: rgb(250, 187, 250);
-    color: black;
+    background-color: #1B2A41;
+    color: #ffffff;
+}
+
+button.activo {
+    background-color: #1B2A41;
+    color: #ffffff;
 }
 
 .fondo {
@@ -136,13 +163,17 @@ button:hover {
 .carrito {
     width: 220px;
     height: 45px;
-    color: rgb(0, 0, 0);
     border-radius: 1px solid black;
     cursor: pointer;
 }
 
-button.activo {
-    background-color: rgb(250, 187, 250);
-    color: rgb(0, 0, 0);
+.stock {
+    color: #378f4a;
+    font-size: 17px;
+}
+
+.contenedor-tallas{
+    display: grid;
+        grid-template-columns: 1.2fr 1.2fr 1.2fr 1fr;
 }
 </style>

@@ -7,8 +7,7 @@
 
 <style scoped>
 footer {
-    background: rgb(250, 187, 250);
-    color: #000000;
+    background: #1B2A41;
     padding: 36px 24px;
     text-align: center;
     margin-top: 50px;
@@ -17,12 +16,12 @@ footer {
 
 p {
     margin: 0;
-    color: #000000;
+    color: #CCC9DC;
     font-size: 14px;
 }
 
 small {
-    color: #6c6a6d;
+    color: #9c95a0;
     font-size: 12px;
     margin-top: 6px;
 }
