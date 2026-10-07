@@ -13,6 +13,7 @@ import porDetras5 from "../assets/porDetras5.jpg"
 import Camiseta6 from "../assets/camiseta6.jpg"
 import porDetras6 from "../assets/porDetras6.jpg"
 import Detalle from './detalle.vue'
+import Carrito from './carrito.vue'
 
 const cantidad = ref(0);
 
@@ -57,27 +58,33 @@ let camisetas = [
 
 const camisetaSeleccionada = ref(null)
 const mostrarDetalle = ref(false);
+const mostrarCarrito = ref(false);
+const carrito = ref([]);
+const precioTotal = ref(0)
 
-const abrirDetalle = (camiseta) => {
-    camisetaSeleccionada.value = camiseta
-    mostrarDetalle.value = true
+const recibirDatos = (objetoCamiseta) => {
+
+    carrito.value.push(objetoCamiseta);
+    cantidad.value = carrito.value.length; 
+    precioTotal.value+=objetoCamiseta.precio
 }
 
-const incrementarCantidad = () => {
-    cantidad.value++
+function eliminarCamiseta(precio) {
+    precioTotal.value -= precio
 }
+
 </script>
 
 <template>
 
-    <div class="carrito">
+    <div class="carrito" @click="mostrarCarrito = true">
         Carrito
         <strong>{{ cantidad}}</strong>
     </div>
 
     <main class="contenedor-principal">
         <div class="catalogo">
-            <article v-for="camiseta in camisetas" :key="camiseta.nombre" class="producto-card" @click="abrirDetalle(camiseta)">
+            <article v-for="camiseta in camisetas" :key="camiseta.nombre" class="producto-card" @click="camisetaSeleccionada = camiseta, mostrarDetalle = true">
                 <div class="img-contenedor">
                     <img :src="camiseta.img[0]" alt="Camiseta">
                 </div>
@@ -89,8 +96,8 @@ const incrementarCantidad = () => {
         </div>
     </main>
 
-    <Detalle :visible="mostrarDetalle" :camiseta="camisetaSeleccionada" @cerrar="mostrarDetalle = false" @agregar="incrementarCantidad"></Detalle>
-
+    <Detalle :visible="mostrarDetalle" :camiseta="camisetaSeleccionada" @cerrar="mostrarDetalle = false" @agregar="recibirDatos"></Detalle>
+    <Carrito :visible="mostrarCarrito" :lista="carrito" :precio-total="precioTotal" @cerrar="mostrarCarrito = false, cantidad = carrito.length" @eliminar="eliminarCamiseta"></Carrito>
 </template>
 
 <style scoped>

@@ -16,27 +16,11 @@ const emit = defineEmits(['cerrar', 'agregar'])
 const totalPrecio = ref(0)
 const tallaSeleccionada = ref('')
 const stock = ref(0)
-const seleccionarTalla = (talla) => {
-    tallaSeleccionada.value = talla
-    if (tallaSeleccionada.value == "XS") {
-        totalPrecio.value = props.camiseta.precios.XS;
-        stock.value = props.camiseta.stock.XS;
-    } else if (tallaSeleccionada.value == 'S') {
-        totalPrecio.value = props.camiseta.precios.S;
-        stock.value = props.camiseta.stock.S;
-    } else if (tallaSeleccionada.value == 'M') {
-        totalPrecio.value = props.camiseta.precios.M;
-        stock.value = props.camiseta.stock.M;
-    } else if (tallaSeleccionada.value == 'L') {
-        totalPrecio.value = props.camiseta.precios.L;
-        stock.value = props.camiseta.stock.L;
-    }
-}
 
 const agregarAlCarrito = () => {
     if (stock.value != 0) {
-        emit('agregar')
-        emit('cerrar')
+        emit('agregar', {nombre: props.camiseta.nombre, precio: totalPrecio.value, talla: tallaSeleccionada.value});
+        emit('cerrar');
     }
 }
 
@@ -70,10 +54,10 @@ const cambiarImagen = () =>{
 
                 <p class="texto-talla">Selecciona una talla</p>
                 <div class="contenedor-tallas">
-                    <button :class="{ activo: tallaSeleccionada === 'XS' }" @click="seleccionarTalla('XS')">XS</button>
-                    <button :class="{ activo: tallaSeleccionada === 'S' }" @click="seleccionarTalla('S')">S</button>
-                    <button :class="{ activo: tallaSeleccionada === 'M' }" @click="seleccionarTalla('M')">M</button>
-                    <button :class="{ activo: tallaSeleccionada === 'L' }" @click="seleccionarTalla('L')">L</button>
+                    <button :class="{ activo: tallaSeleccionada === 'XS' }" @click="tallaSeleccionada = 'XS', totalPrecio = camiseta.precios.XS, stock = camiseta.stock.XS">XS</button>
+                    <button :class="{ activo: tallaSeleccionada === 'S' }" @click="tallaSeleccionada = 'S', totalPrecio = camiseta.precios.S, stock = camiseta.stock.S">S</button>
+                    <button :class="{ activo: tallaSeleccionada === 'M' }" @click="tallaSeleccionada = 'M', totalPrecio = camiseta.precios.M, stock = camiseta.stock.M">M</button>
+                    <button :class="{ activo: tallaSeleccionada === 'L' }" @click="tallaSeleccionada = 'L', totalPrecio = camiseta.precios.L, stock = camiseta.stock.L">L</button>
                 </div>
                 <strong class="stock">Stock Talla {{ tallaSeleccionada }} disponible: {{ stock }} camisetas</strong>
 
