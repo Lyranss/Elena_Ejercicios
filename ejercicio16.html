@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let precioManzana = 2.40;
+        let cantidadManzana = 6;
+
+        let precioPlatano = 1.49;
+        let cantidadPlatano = 4;
+
+        let cantidadNaranja = 7;
+        let precioNaranja = 2.10;
+
+        let precioAguacate = 4.65;
+        let cantidadAguacate = 12;
+
+        let cantidadMandarina = 8;
+        let precioMandarina = 2.59;
+
+        let contador = 0;
+        let precioTotal = 0;
+        alert("Frutas disponibles: \n" +
+        cantidadManzana + " Manzanas: " + precioManzana + "€/kg\n" + 
+        cantidadPlatano + " Plátanos: " + precioPlatano + "€/kg\n" + 
+        cantidadNaranja + " Naranjas: " + precioNaranja + "€/kg\n" + 
+        cantidadAguacate + " Aguacates: " + precioAguacate + "€/kg\n" +
+        cantidadMandarina + " Mandarinas: " + precioMandarina + "€/kg");
+
+        while(contador < 3){
+            let frutaPedida = prompt("Elige una fruta");
+            let cantidad = prompt("Cuanto quieres");
+            let precio = 0;
+            switch(frutaPedida){
+                case "Manzana":
+                    precio= precioManzana;
+                    break;
+                case "Plátano":
+                    precio = precioPlatano;
+                    break;
+                case "Naranjas":
+                    precio = precioNaranja;
+                    break;
+                case "Aguacates":
+                    precio = precioAguacate;
+                    break;
+                case "Mandarinas":
+                    precio = precioMandarina;
+                    break;
+                default:
+                    "No existe la fruta";
+                    break;
+            }
+            precioTotal = precio*cantidad;
+        }
+    </script>
+</body>
+</html>
