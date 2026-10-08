@@ -16,7 +16,34 @@
             {fruta: 'Mandarina', cantidad: 8, precio: 2.59}
         ]
 
+        let mensaje = '';
+
+        let contador = 0;
+        let total = 0;
+        for(let i = 0; i < frutas.length; i++){
+            mensaje += frutas[i].cantidad + " " + frutas[i].fruta + ": " + frutas[i].precio + "€\n"
+        }
+
+        alert(mensaje);
+
+        while(contador < 3){
+            let precio = 0;
+            let frutaElegida = prompt("Elige la fruta que quieras");
+            let kilos = prompt("Cuantos kilos quieres");
+            for(let i = 0; i < frutas.length; i++){
+                if(frutas[i].fruta == frutaElegida){
+                    if(frutas[i].cantidad < kilos){
+                        alert("No hay fruta suficiente");
+                    }else{
+                        precio = frutas[i].precio;
+                    }
+                }
+            }
+            total += precio;
+            contador++;
+        }
         
+        alert("Precio total: " + total.toFixed(2));
     </script>
 </body>
 </html>
