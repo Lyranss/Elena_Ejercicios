@@ -7,7 +7,6 @@ const props = defineProps({
 
 const notasMinimas = [70, 60, 50]
 const notas = ref([]);
-const recuperacion = ref();
 const examenesAprobados = computed(() => {
     let aprobados = 0;
     for (let i = 0; i < notas.value.length; i++) {
@@ -18,6 +17,8 @@ const examenesAprobados = computed(() => {
     return aprobados;
 })
 
+const emit = defineEmits(['aniadirNotas']);
+
 </script>
 
 <template>
@@ -25,7 +26,7 @@ const examenesAprobados = computed(() => {
         <h4>Evaluación {{ evaluacion }}</h4>
         <br>
         <div class="tarjeta-notas" style="max-width: 18rem;">
-            <div v-if="examenesAprobados === 3 || recuperacion >= 50" 
+            <div v-if="examenesAprobados === 3 || notas[3] >= 50" 
                 class="estado-evaluacion estado-ok">Evaluación aprobada</div>
             <div v-else class="estado-evaluacion estado-ko">Evaluación suspensa</div>
             <div class="card-body">
@@ -60,13 +61,13 @@ const examenesAprobados = computed(() => {
                 <div v-if="examenesAprobados !== 3" class="bloque-examen">
                     <label for="exampleFormControlInput1" class="form-label">Recuperación</label>
                     <div>   
-                        <input v-model.number="recuperacion" type="number" min="0" max="10" class="form-control"
-                            :class="recuperacion >= 50 ? 'is-valid' : 'is-invalid'"
+                        <input v-model.number="notas[3]" type="number" min="0" max="10" class="form-control"
+                            :class="notas[3] >= 50 ? 'is-valid' : 'is-invalid'"
                             id="exampleFormControlInput1" placeholder="Escribe una nota">
-                        <div v-if="recuperacion < 0 || recuperacion > 100" class="form-text">
+                        <div v-if="notas[3] < 0 || notas[3] > 100" class="form-text">
                             Nota inválida
                         </div>
-                        <div v-else-if="recuperacion >= 50" class="form-text"
+                        <div v-else-if="notas[3] >= 50" class="form-text"
                             style="color: green;">
                             Aprobado
                         </div>
@@ -76,6 +77,7 @@ const examenesAprobados = computed(() => {
                     </div>
                 </div>
             </div>
+            <button @click="emit('aniadirNotas', notas)">Guardar Notas</button>
         </div>
     </div>
 
